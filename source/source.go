@@ -297,7 +297,7 @@ type informerFactory interface {
 }
 
 func waitForCacheSync(ctx context.Context, factory informerFactory) error {
-	ctx, cancel := context.WithTimeout(ctx, 60*time.Second)
+	ctx, cancel := context.WithTimeout(ctx, 180*time.Second)
 	defer cancel()
 	for typ, done := range factory.WaitForCacheSync(ctx.Done()) {
 		if !done {
@@ -317,7 +317,7 @@ type dynamicInformerFactory interface {
 }
 
 func waitForDynamicCacheSync(ctx context.Context, factory dynamicInformerFactory) error {
-	ctx, cancel := context.WithTimeout(ctx, 60*time.Second)
+	ctx, cancel := context.WithTimeout(ctx, 180*time.Second)
 	defer cancel()
 	for typ, done := range factory.WaitForCacheSync(ctx.Done()) {
 		if !done {
