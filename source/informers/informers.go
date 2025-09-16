@@ -26,7 +26,7 @@ import (
 )
 
 const (
-	defaultRequestTimeout = 60
+	defaultRequestTimeout = 180
 )
 
 type informerFactory interface {
